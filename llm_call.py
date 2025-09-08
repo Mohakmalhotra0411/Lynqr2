@@ -15,7 +15,7 @@ def get_gemini_response(prompt_text):
     Makes a simple API call to the Gemini model and returns the response text.
     """
     try:
-        model = genai.GenerativeModel('gemini-1.5-flash')
+        model = genai.GenerativeModel('gemini-2.5-flash')
         response = model.generate_content(prompt_text)
         return response.text
     except Exception as e:
@@ -30,5 +30,6 @@ llm_response = get_gemini_response(my_prompt)
 # Print the response
 print(f"Prompt: {my_prompt}")
 print(f"LLM Response: {llm_response}")
+
 
 
