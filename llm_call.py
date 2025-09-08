@@ -1,14 +1,14 @@
 import os
+from dotenv import load_dotenv
 import google.generativeai as genai
 
-# Configure the API key from an environment variable.
-# It is highly recommended to set this in your system environment.
-# For example, on Linux/macOS: export GOOGLE_API_KEY='your_api_key_here'
-# Or for a quick test, you can uncomment the line below and paste your key.
-genai.configure(api_key='AIzaSyDLRB_JuPItiHQDL-f5oUqqh5XUPJo5-jE')
+# Load environment variables from .env file
+load_dotenv()
 
-# The API key is automatically picked up from the environment variable GOOGLE_API_KEY
-# If you didn't set it in your environment, the 'genai.configure' line above is necessary.
+# Access the API key
+genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
+
+
 
 def get_gemini_response(prompt_text):
     """
@@ -30,4 +30,5 @@ llm_response = get_gemini_response(my_prompt)
 # Print the response
 print(f"Prompt: {my_prompt}")
 print(f"LLM Response: {llm_response}")
+
 
