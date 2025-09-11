@@ -17,8 +17,10 @@ This repository contains the code for the agentic challenge.
     -  Set up your environment variables or a configuration file with your API keys for the chosen LLM.
 
 4.  **Run the scripts:**
-    -  [Add instructions on how to run your main scripts, e.g., `python level1/llm_call.py` or a main entry point if you have one.]
-
+    -  1. Run the llm_call.py on vscode
+       2. Paste the command streamlit run C:\Users\User\Downloads\vpl_module-4.3.2\vpl\.vscode\pdf_reader.py on your local terminal to run the pdf_reader.py
+       3. Run the weather_mcp.py first on vscode to create WeatherMCP server
+       4. Once the server connects to the client_agent.py run it
 ## LLM API Used
 
 -   **LLM Provider:** [Google Gemini]
