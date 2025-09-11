@@ -1,27 +1,24 @@
-from mcp import Tool
-from mcp.server.fastmcp import FastMCP
-import random
+from fastmcp import FastMCP
+import asyncio
 
-# The @tool() decorator is now imported directly and used correctly.
-@Tool(name="get_weather")
+# Instantiate a FastMCP server.
+mcp = FastMCP("WeatherMCP")
+
+@mcp.tool()
 def get_weather(city: str) -> str:
     """
-    Returns the current weather for a given city.
-    
+    Returns mock weather information for a given city.
     Args:
-        city: The name of the city (e.g., "Hyderabad").
-
-    Returns:
-        A string describing the weather.
+        city: The name of the city.
     """
-    mock_responses = [
-        "It's sunny and 30°C.",
-        "It's cloudy with light rain, 27°C.",
-        "There is a thunderstorm, 25°C."
-    ]
-    return f"According to the weather API, {random.choice(mock_responses)}"
+    mock_weather = {
+        "london": "Sunny, 30°C",
+        "new york": "Cloudy, 25°C",
+        "tokyo": "Rainy, 22°C",
+        "gurugram": "Hot and Humid, 35°C",
+    }
+    return mock_weather.get(city.lower(), "Weather information not available.")
 
-# Run the MCP server to start listening for tool requests.
 if __name__ == "__main__":
-    # The function is also imported directly.
-    mcp.run()
+    # The stdio transport is suitable for connecting with local clients.
+    mcp.run(transport="stdio")
