@@ -1,0 +1,13 @@
+os
+dotenv
+google.generative.ai
+streamlit
+pypdf
+PdfReader
+fastmcp
+asyncio
+Client
+FastMCP
+load_dotenv
+st
+genai
