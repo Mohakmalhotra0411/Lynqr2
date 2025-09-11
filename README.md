@@ -27,13 +27,13 @@ This repository contains the code for the agentic challenge.
 ## Sample Inputs and Outputs
 
 ### Level 1: PDF Reader
--   **Input:** [Describe the input, e.g., a sample PDF file `document.pdf`]
--   **Output:** [Describe the expected output, e.g., a text summary of the PDF content.]
+-   **Input:** https://assets.airtel.in/static-assets/cms/investor/docs/annual_results_2024_25/Integrated_Report_and_Annual_Financial_Statements.pdf
+-   **Output:** This report tells us about all the sim cards added in respective states of India
 
 ### Level 2: Weather Agent
--   **Input:** [Describe the input, e.g., a user query like "What's the weather like in New York today?"]
--   **Output:** [Describe the expected output, e.g., a concise weather forecast for New York City.]
+-   **Input:**  "What's the weather like in gurugram today?"
+-   **Output:** "Hot and Humid, 35°C"
 
 ## Final Deliverable
 
--   **GitHub Link:** [Paste the link to your public GitHub repository here]
+-   **GitHub Link:** https://github.com/Mohakmalhotra0411/Lynqr2.git
