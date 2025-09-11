@@ -6,7 +6,7 @@ This repository contains the code for the agentic challenge.
 
 1.  **Clone the repository:**
     ```bash
-    git clone [your-github-repo-link]
+    git clone https://github.com/Mohakmalhotra0411/Lynqr2.git
     cd agentic-challenge
     ```
 2.  **Install the required dependencies:**
@@ -21,8 +21,8 @@ This repository contains the code for the agentic challenge.
 
 ## LLM API Used
 
--   **LLM Provider:** [e.g., OpenAI, Google Gemini, Anthropic]
--   **Specific Model:** [e.g., `gpt-4o`, `gemini-1.5-pro`, `claude-3-opus`]
+-   **LLM Provider:** [Google Gemini]
+-   **Specific Model:** [`gemini-2.5-pro`]
 
 ## Sample Inputs and Outputs
 
