@@ -1,18 +1,48 @@
-# client_agent.py
+from fastmcp import Client
+import asyncio
+import os
 
-import mcp
-from mcp.client import ClientAgent
+async def main():
+    # To connect to the local server running via stdio, you need a configuration
+    # that specifies the command to execute your server script.
+    config = {
+        "mcpServers": {
+            "weather": {
+                "command": "python",
+                "args": ["weather_mcp.py"],
+            }
+        }
+    }
+    
+    # Create a client with the defined configuration.
+    client = Client(config)
 
-# Assuming your client_agent class is defined and has an mcp client
-class MyClientAgent(ClientAgent):
-    def __init__(self):
-        super().__init__()
-        # Point the client to the weather MCP server
-        self.connect_to_server('localhost:8000') # Or whatever address your server is running on
+    # Use a context manager to ensure the client is properly started and closed.
+    async with client:
+        print("Connecting to MCP server...")
 
-# Run the client agent
+        # Call the get_weather tool on the 'weather' server.
+        city_to_check = "London"
+        print(f"Requesting weather for {city_to_check}...")
+        try:
+            forecast = await client.call_tool(
+                "weather_get_weather", 
+                {"city": city_to_check}
+            )
+            print(f"Received from server: {forecast}")
+        except Exception as e:
+            print(f"An error occurred: {e}")
+
+        city_to_check = "Gurugram"
+        print(f"\nRequesting weather for {city_to_check}...")
+        try:
+            forecast = await client.call_tool(
+                "weather_get_weather", 
+                {"city": city_to_check}
+            )
+            print(f"Received from server: {forecast}")
+        except Exception as e:
+            print(f"An error occurred: {e}")
+
 if __name__ == "__main__":
-    # This is a conceptual example. The actual client code may vary.
-    # The agent would have a loop to receive user input and process it.
-    agent = MyClientAgent()
-    agent.start_chat()
+    asyncio.run(main())
